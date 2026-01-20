@@ -1,115 +1,69 @@
-export default function About() {
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Target, Users, ShieldCheck } from 'lucide-react';
+
+const AboutSection = () => {
   return (
-    <div className="bg-white text-black">
-
-      {/* Hero Section */}
-      <section className="relative h-[100vh] flex items-center justify-center">
-        <img
-          src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6"
-          alt="about appliz"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10 text-center text-white px-6 max-w-2xl">
-          <h1 className="text-4xl font-bold mb-4">About Appliz</h1>
-          <p>
-            Redefining how people discover, buy, and rent properties.
-          </p>
-        </div>
-      </section>
-
-      {/* Company Overview */}
-    <section className="py-16 px-6 max-w-6xl mx-auto">
-    <div className="grid md:grid-cols-3 gap-8">
-
-        {/* Vision */}
-        <div className="shadow-lg rounded-lg p-6">
-        <h3 className="text-xl font-semibold text-center text-green-950 mb-3">
-            Our Vision
-        </h3>
-        <p className="text-gray-700">
-            To become a trusted and innovative real estate platform that empowers
-            individuals and families to make confident property decisions.
-        </p>
-        </div>
-
-        {/* Mission */}
-        <div className="shadow-lg rounded-lg p-6">
-        <h3 className="text-xl text-center font-semibold text-green-950 mb-3">
-            Our Mission
-        </h3>
-        <p className="text-gray-700">
-            To simplify property discovery by providing transparent listings,
-            modern tools, and expert support that meet the needs of today’s
-            buyers, renters, and investors.
-        </p>
-        </div>
-
-        {/* Core Values */}
-        <div className="shadow-lg rounded-lg p-6">
-        <h3 className="text-xl text-center font-semibold text-green-950 mb-3">
-            Core Values
-        </h3>
-        <ul className="list-disc list-inside text-gray-700 space-y-2">
-            <li>Integrity and transparency</li>
-            <li>Customer-first approach</li>
-            <li>Innovation and simplicity</li>
-            <li>Trust and accountability</li>
-        </ul>
-        </div>
-
-  </div>
-</section>
-
-      {/* Why Choose Us */}
-      <section className="py-16 px-6 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-green-950 mb-10">
-          Why Choose Appliz
-        </h2>
-
-        <div className="grid md:grid-cols-3 gap-8">
+    <section id="about" className="py-20 px-6 md:px-20 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
           
-          <div className="shadow-lg p-6 rounded-lg">
-            <h4 className="font-semibold mb-2">Trusted Listings</h4>
-            <p className="text-gray-600 text-sm">
-              Every property is carefully reviewed to ensure accuracy and
-              legitimacy.
+          {/* Text Content */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-green-950 font-bold text-sm uppercase tracking-widest mb-2">Our Story</h2>
+            <h3 className="text-4xl font-bold text-black mb-6 leading-tight">
+              Redefining Real Estate <br /> 
+              <span className="text-green-950">Through Integrity.</span>
+            </h3>
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              Appliz Properties was founded on a simple realization: many Nigerians want to invest in their homeland but are paralyzed by the fear of fraud and complex documentation.
             </p>
-          </div>
+            <p className="text-gray-600 mb-8 leading-relaxed">
+              We don't just sell plots; we sell peace of mind. By focusing on the South-South region, we ensure every square meter we transact is 100% verified, government-cleared, and ready for immediate development.
+            </p>
+            
+            <div className="space-y-4">
+              <div className="flex gap-4 items-start">
+                <div className="bg-green-100 p-2 rounded-lg text-green-950">
+                  <Target size={20} />
+                </div>
+                <div>
+                  <h4 className="font-bold">Our Mission</h4>
+                  <p className="text-sm text-gray-500">To provide secure land assets that investors can control and verify from anywhere in the world.</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
 
-          <div className="shadow-lg p-6 rounded-lg">
-            <h4 className="font-semibold mb-2">Customer-First Approach</h4>
-            <p className="text-gray-600 text-sm">
-              We prioritize transparency, support, and long-term relationships.
-            </p>
-          </div>
-
-          <div className="shadow-lg p-6 rounded-lg">
-            <h4 className="font-semibold mb-2">Modern Experience</h4>
-            <p className="text-gray-600 text-sm">
-              A clean interface designed to make property search fast and simple.
-            </p>
-          </div>
+          {/* Visual Elements / Values Grid */}
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-2 gap-4"
+          >
+            <div className="bg-green-950 text-white p-8 rounded-2xl flex flex-col justify-end h-64">
+              <Users size={32} className="mb-4 text-green-400" />
+              <h4 className="text-xl font-bold">Community Led</h4>
+              <p className="text-sm opacity-80">Built for Nigerians, by Nigerians who understand the market.</p>
+            </div>
+            <div className="bg-gray-100 p-8 rounded-2xl flex flex-col justify-end h-64 border border-gray-200">
+              <ShieldCheck size={32} className="mb-4 text-green-950" />
+              <h4 className="text-xl font-bold text-black">Verified Only</h4>
+              <p className="text-sm text-gray-500">Zero tolerance for unverified or disputed land titles.</p>
+            </div>
+          </motion.div>
 
         </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 px-6 bg-black text-white text-center">
-        <h2 className="text-2xl font-bold mb-4">
-          Let’s Help You Find Your Next Property
-        </h2>
-        <p className="mb-6 text-gray-300">
-          Whether you’re buying, renting, or investing, Appliz is here for you.
-        </p>
-        <a
-          href="/contact"
-          className="inline-block bg-green-950 text-white px-6 py-3 rounded"
-        >
-          Contact Us
-        </a>
-      </section>
-
-    </div>
+      </div>
+    </section>
   );
-}
+};
+
+export default AboutSection;
