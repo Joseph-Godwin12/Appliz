@@ -49,9 +49,15 @@ const LandingPage = () => {
             </p>
             
             <div className="flex flex-wrap justify-center gap-4 mb-16">
-              <button className="bg-green-950 hover:bg-green-900 text-white px-8 py-4 rounded-md flex items-center gap-3 font-bold transition-all">
-                <Calendar size={20} /> Book a Free Consultation
-              </button>
+             <a
+                href="mailto:applizresources@gmail.com"
+                className="inline-block"
+              >
+                <button className="bg-green-950 hover:bg-green-900 text-white px-8 py-4 rounded-md flex items-center gap-3 font-bold transition-all">
+                  <Calendar size={20} />
+                  Book a Free Consultation
+                </button>
+              </a>
               <a
                   href="https://wa.me/2347030978492"
                   target="_blank"
@@ -287,9 +293,15 @@ const LandingPage = () => {
             <div className="bg-green-950 p-8 rounded-3xl w-full max-w-md text-center">
               <h4 className="font-black text-xl mb-6 uppercase italic"> Start Your Journey</h4>
               <div className="flex flex-col gap-4">
-                <button className="bg-white text-green-950 w-full py-4 rounded-xl font-black hover:bg-gray-100 transition-all flex items-center justify-center gap-2">
-                  <Calendar size={18} /> BOOK A FREE CONSULTATION
-                </button>
+               <a
+                  href="mailto:applizresources@gmail.com?subject=Free%20Consultation%20Request&body=Hello%20Appliz%20Properties,%0A%0AI%20would%20like%20to%20book%20a%20free%20consultation.%0A%0AThank%20you."
+                  className="block w-full"
+                >
+                  <button className="bg-white text-green-950 w-full py-4 rounded-xl font-black hover:bg-gray-100 transition-all flex items-center justify-center gap-2">
+                    <Calendar size={18} />
+                    BOOK A FREE CONSULTATION
+                  </button>
+                </a>
                <a
                   href="https://wa.me/2347030978492"
                   target="_blank"
