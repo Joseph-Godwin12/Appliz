@@ -1,12 +1,50 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Calendar, MessageCircle, Home, MapPin, ShieldCheck, 
   Globe, CheckCircle2, Search, FileText, CreditCard, UserCheck, 
   Lock, Zap, Star, Phone, Award, Map, Users, Video, BookOpen
 } from 'lucide-react';
+import heroImg from '../assets/appliz1.jpg';
 
 const LandingPage = () => {
+  const [active, setActive] = useState("home")
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.6, 
+      }
+    );
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        observer.unobserve(section);
+      });
+    };
+  }, []);
+
+  const linkClass = (id) =>
+    `transition-colors ${
+      active === id
+        ? "text-green-950 font-bold border-b-2 border-green-950"
+        : "text-gray-600 hover:text-green-950"
+    }`;
+
+
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
     whileInView: { opacity: 1, y: 0 },
@@ -14,64 +52,88 @@ const LandingPage = () => {
     transition: { duration: 0.6 }
   };
 
+
   return (
     <div className="min-h-screen bg-white font-sans text-black selection:bg-green-100">
       
       {/* --- NAVIGATION --- */}
-      <nav className="flex items-center justify-between px-6 py-5 border-b border-gray-100 sticky top-0 bg-white/90 backdrop-blur-md z-50 md:px-20">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-green-950 flex items-center justify-center rounded-lg">
-            <Home className="text-white" size={24} />
-          </div>
-          <div>
-            <h1 className="font-bold text-xl leading-tight uppercase tracking-tighter">APPLIZ</h1>
-            <p className="text-[10px] tracking-[0.2em] text-gray-500 uppercase font-bold">RC812094</p>
-          </div>
+     <nav className="flex items-center justify-between px-6 py-5 border-b border-gray-100 sticky top-0 bg-white/90 backdrop-blur-md z-50 md:px-20">
+      <div className="flex items-center gap-2">
+        <div className="w-10 h-10 bg-green-950 flex items-center justify-center rounded-lg">
+          <Home className="text-white" size={24} />
         </div>
-        <div className="hidden md:flex gap-8 font-medium text-sm text-gray-600">
-          <a href="#home" className="text-green-950 font-bold border-b-2 border-green-950">Home</a>
-          <a href="#about" className="hover:text-green-950 transition-colors">About Us</a>
-          {/* <a href="#services" className="hover:text-green-950 transition-colors">Services</a> */}
-          <a href="#process" className="hover:text-green-950 transition-colors">Process</a>
-          <a href="#contact" className="hover:text-green-950 transition-colors">Contact</a>
+        <div>
+          <h1 className="font-bold text-xl leading-tight uppercase tracking-tighter">
+            APPLIZ
+          </h1>
+          <p className="text-[10px] tracking-[0.2em] text-gray-500 uppercase font-bold">
+            RC812094
+          </p>
         </div>
-      </nav>
+      </div>
 
-      {/* --- 1. ABOVE THE FOLD --- */}
-      <section id="home" className="grid lg:grid-cols-12 gap-0 overflow-hidden bg-black text-white">
-        <div className="lg:col-span-12 px-6 py-16 md:px-20 text-center max-w-5xl mx-auto relative">
-          <motion.div {...fadeInUp}>
-            <h2 className="text-4xl md:text-6xl font-bold leading-[1.1] mb-8">
-              Own Real Estate Assets You Can Control, Verify, and Sleep Peacefully With.
-            </h2>
-            <p className="text-gray-400 mb-10 text-lg leading-relaxed mx-auto max-w-3xl">
-              We have helped Nigerians at home and across five continents preserve and grow wealth through fully verified, low-risk real estate investments in Southeast and South-South Nigeria.
-            </p>
-            
-            <div className="flex flex-wrap justify-center gap-4 mb-16">
-             <a
-                href="mailto:applizresources@gmail.com"
-                className="inline-block"
+      <div className="hidden md:flex gap-8 font-medium text-sm">
+        <a href="#home" className={linkClass("home")}>
+          Home
+        </a>
+        <a href="#about" className={linkClass("about")}>
+          About Us
+        </a>
+        <a href="#process" className={linkClass("process")}>
+          Process
+        </a>
+        <a href="#contact" className={linkClass("contact")}>
+          Contact
+        </a>
+      </div>
+    </nav>
+
+     
+        <section id="home" className="grid lg:grid-cols-12 gap-0 overflow-hidden bg-black text-white relative"
+          style={{
+            backgroundImage: `url(${heroImg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-md"></div>
+          <div className="lg:col-span-12 px-6 py-16 md:px-20 text-center max-w-5xl mx-auto relative z-10">
+            <div className="inline-flex items-center gap-2 bg-green-900/30 border border-green-700 px-4 py-2 rounded-full mb-8 text-green-300 text-xs font-bold uppercase tracking-wider">
+            <ShieldCheck size={16} />
+            Verified • Trusted • Transparent
+          </div>
+            <motion.div {...fadeInUp}>
+          <h2 className="text-4xl md:text-6xl font-bold leading-[1.1] mb-8">
+            Own Real Estate Assets You Can Control, Verify, and Sleep Peacefully With.
+          </h2>
+          <p className="text-gray-400 mb-10 text-lg leading-relaxed mx-auto max-w-3xl">
+            We have helped Nigerians at home and across five continents preserve and grow wealth through fully verified, low-risk real estate investments in Southeast and South-South Nigeria.
+          </p>
+          
+          <div className="flex flex-wrap justify-center gap-4 mb-16">
+           <a
+              href="mailto:applizresources@gmail.com"
+              className="inline-block"
+            >
+              <button className="bg-green-950 hover:bg-green-900 text-white px-8 py-4 rounded-md flex items-center gap-3 font-bold transition-all">
+            <Calendar size={20} />
+            Book a Free Consultation
+              </button>
+            </a>
+            <a
+            href="https://wa.me/2347030978492"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block"
               >
-                <button className="bg-green-950 hover:bg-green-900 text-white px-8 py-4 rounded-md flex items-center gap-3 font-bold transition-all">
-                  <Calendar size={20} />
-                  Book a Free Consultation
-                </button>
+            <button className="border border-green-700 text-green-500 px-8 py-4 rounded-md flex items-center gap-3 font-bold hover:bg-green-950/20 transition-all">
+              <MessageCircle size={20} />
+              Chat with Us on WhatsApp
+            </button>
               </a>
-              <a
-                  href="https://wa.me/2347030978492"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block"
-                >
-                  <button className="border border-green-700 text-green-500 px-8 py-4 rounded-md flex items-center gap-3 font-bold hover:bg-green-950/20 transition-all">
-                    <MessageCircle size={20} />
-                    Chat with Us on WhatsApp
-                  </button>
-                </a>
-            </div>
+          </div>
 
-            {/* Trust Numbers */}
+          {/* Trust Numbers */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 bg-white text-black p-8 rounded-2xl shadow-2xl border border-gray-100">
               {[
                 { label: "Plots Sold", value: "102", icon: <Home size={20} className="text-green-950 mb-1"/> },
@@ -151,17 +213,6 @@ const LandingPage = () => {
             <motion.div {...fadeInUp}>
               <h3 className="text-green-950 font-black text-2xl mb-4 italic uppercase"> SELLING BY EDUCATION</h3>
               <p className="text-gray-600 mb-6 italic font-medium">"Appreciation is optional. Preservation is non-negotiable."</p>
-              
-              {/* <div className="mt-12">
-                <h3 className="text-green-950 font-black text-2xl mb-4 italic uppercase">5. LOCATION STORYTELLING</h3>
-                <div className="space-y-3 bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                  {["Google map location", "Distance to major roads and infrastructure", "Why demand will grow in 5–10 years", "Who will want this land in the future"].map((point, i) => (
-                    <div key={i} className="flex items-center gap-3 text-sm font-bold">
-                       <MapPin className="text-green-950" size={16} /> {point}
-                    </div>
-                  ))}
-                </div>
-              </div> */}
             </motion.div>
 
             {/* Section 6: Social Proof */}
@@ -320,6 +371,7 @@ const LandingPage = () => {
         <div className="text-center mt-20 text-[10px] text-gray-600 uppercase tracking-[0.3em] font-bold">
           © 2026 Appliz Properties. Built for capital preservation.
         </div>
+      
       </footer>
     </div>
   );
