@@ -6,7 +6,7 @@ import {
   Lock, Zap, Star, Phone, Award, Map, Users, Video, BookOpen
 } from 'lucide-react';
 import heroImg from '../assets/appliz1.jpg';
-import logo from '../assets/applizlogo.png';
+import logo from '../assets/applizlogo.jpg';
 
 const LandingPage = () => {
   const [active, setActive] = useState("home");
