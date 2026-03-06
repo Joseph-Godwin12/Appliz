@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Home, Menu, X } from "lucide-react";
+import logo from "../assets/applizlogo.jpg";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -11,21 +12,11 @@ export default function Navbar() {
   return (
     <>
       {/* Navbar */}
-      <nav className="flex items-center justify-between px-6 py-4 border-b border-gray-100 sticky top-0 bg-white z-50">
+      <nav className="flex items-center justify-between px-6 py-3 border-b border-gray-100 sticky top-0 bg-white z-50">
         
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-green-950 flex items-center justify-center rounded-lg">
-            <Home className="text-white" size={24} />
-          </div>
-          <div>
-            <h1 className="font-bold text-xl leading-tight">
-              APPLIZ PROPERTIES
-            </h1>
-            <p className="text-[10px] tracking-widest text-gray-500">
-              RC812094
-            </p>
-          </div>
+        <div className="flex items-center gap-2 "  style={{ height: '52px', overflow: 'hidden' }}>
+          <img src={logo} alt="Appliz Logo" className="h-44 w-auto" style={{ marginTop: '6px' }}/>
         </div>
 
         {/* Desktop Nav */}
@@ -56,9 +47,6 @@ export default function Navbar() {
             Services
           </Link>
 
-          <Link to="/testimonials" className="hover:text-green-800">
-            Testimonials
-          </Link>
 
           <Link to="/contact" className="hover:text-green-800">
             Contact
@@ -100,7 +88,6 @@ export default function Navbar() {
           <Link to="/" onClick={() => setOpen(false)}>Home</Link>
           <Link to="/about" onClick={() => setOpen(false)}>About Us</Link>
           <Link to="/properties" onClick={() => setOpen(false)}>Services</Link>
-          <Link to="/testimonials" onClick={() => setOpen(false)}>Testimonials</Link>
           <Link to="/contact" onClick={() => setOpen(false)}>Contact</Link>
         </div>
       </div>
