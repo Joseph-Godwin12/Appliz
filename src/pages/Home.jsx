@@ -22,7 +22,7 @@ const Home = () => {
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true },
     transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] }
-  };
+  };  
 
   const stagger = (i) => ({
     initial: { opacity: 0, y: 30 },
@@ -187,12 +187,13 @@ const Home = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="absolute bottom-0 left-0 right-0 z-10 stat-bar-bg"
         >
-          <div className="max-w-7xl mx-auto px-8 md:px-20 py-5 grid grid-cols-2 md:grid-cols-6 gap-6">
+          <div className="max-w-8xl mx-auto px-8 md:px-20 py-6 grid grid-cols-2 md:grid-cols-6 gap-6">
             {[
               { label: "Verified properties Sold", value: "100+", icon: <HomeIcon size={14}/> },
               { label: "Clients Served", value: "78+", icon: <Users size={14}/> },
               { label: "Experience", value: "4+ Yrs", icon: <ShieldCheck size={14}/> },
-              { label: "Verified Docs", value: "100%", icon: <Globe size={14}/> }
+              { label: "Verified Docs", value: "100%", icon: <Globe size={14}/> },
+              { label: "Properties Delivered", value: "103+", icon: <Star size={14}/> }
             ].map((stat, i) => (
               <div key={i} className="flex flex-col items-center text-center">
                 <span className="text-[#15803d] mb-1">{stat.icon}</span>

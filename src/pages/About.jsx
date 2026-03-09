@@ -1,8 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  ShieldCheck, FileText, Landmark, Award, BookOpen, Video, 
-  Zap, TrendingUp, Lock, Map, Handshake, Eye, AlertTriangle, 
+import {
+  ShieldCheck, FileText, Landmark, Award, BookOpen, Video,
+  Zap, TrendingUp, Lock, Map, Handshake, Eye, AlertTriangle,
   Building2, CheckCircle2, Globe
 } from 'lucide-react';
 import heroImg from '../assets/appliz2.jpg';
@@ -126,6 +125,73 @@ const About = () => {
         </div>
       </section>
 
+      {/* ── ABOUT THE COMPANY ── */}
+      <section className="py-16 px-8 md:px-20 bg-white">
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.div {...fadeInUp}>
+            <h2 className="serif text-4xl font-light mb-4">About the Company</h2>
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-2xl mx-auto mb-6">
+              Appliz Homes &amp; Properties LTD is a registered real estate investment and development
+              company (RC 8132094) incorporated in 2021 and headquartered in Imo state, Nigeria, serving
+              Nigerians at home and in the Diaspora.
+            </p>
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-2xl mx-auto mb-6">
+              With 4+ years of structured operations, 103+ properties sold, and 58+ clients served, we
+              provide verified land acquisition, strategic development opportunities, and structured
+              investment advisory.
+            </p>
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+              We exist to eliminate fear, fraud, and uncertainty in Nigerian real estate by prioritizing
+              capital preservation as the foundation for structured appreciation.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+            {/* ── THE BEGINNING ── */}
+      <section className="py-32 px-8 md:px-20 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <motion.div {...fadeInUp} className="mb-20">
+            <p className="section-label mb-4">Our Journey</p>
+            <h2 className="serif text-5xl md:text-6xl font-light text-gray-900 green-line" style={{ display: 'inline-block' }}>
+              The<br /><em className="text-[#15803d]">Beginning</em>
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-12">
+            {/* The Problem */}
+            <motion.div {...stagger(0)} className="green-border-card bg-[#f9fafb] p-8 rounded-sm">
+              <p className="section-label mb-6">2021 · The Problem</p>
+              <h3 className="serif text-2xl font-light text-gray-900 mb-4">A Clear Observation</h3>
+              <p className="text-gray-600 text-sm font-light leading-relaxed">
+                Many Nigerians were losing money to undocumented land, poor title structures, and speculative buying without due diligence. The market needed protection, not more speculation.
+              </p>
+            </motion.div>
+
+            {/* Our Foundation */}
+            <motion.div {...stagger(1)} className="green-border-card bg-[#f9fafb] p-8 rounded-sm">
+              <p className="section-label mb-6">From Inception</p>
+              <h3 className="serif text-2xl font-light text-gray-900 mb-4">Our Foundation</h3>
+              <p className="text-gray-600 text-sm font-light leading-relaxed">
+                From inception, the company was built around strict title verification and structured onboarding, ensuring every client investment is protected and documented.
+              </p>
+            </motion.div>
+
+            {/* Today */}
+            <motion.div {...stagger(2)} className="green-border-card bg-[#f9fafb] p-8 rounded-sm">
+              <p className="section-label mb-6">Present Day</p>
+              <h3 className="serif text-2xl font-light text-gray-900 mb-4">Today</h3>
+              <p className="text-gray-600 text-sm font-light leading-relaxed">
+                APPLIZ Properties operates across high-growth corridors in Nigeria with a growing portfolio of branded estates, setting the standard for institutional real estate.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 2: THE APPLIZ SYSTEM ── */}
+      
+
       {/* ── WHY APPLIZ SECTION ── */}
       <section className="py-32 px-8 md:px-20 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -139,7 +205,7 @@ const About = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <span className="pill-tag text-[#15803d] text-xs tracking-[0.2em] uppercase font-semibold px-4 py-2 rounded-sm">
-                Real Estate Investment & Development
+                Real Estate Investment &amp; Development
               </span>
               <span className="pill-tag text-[#15803d] text-xs tracking-[0.2em] uppercase font-semibold px-4 py-2 rounded-sm">
                 Capital Security. Structured Growth.
@@ -203,8 +269,8 @@ const About = () => {
               </p>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {[
-                  { value: "100+", label: "Verified Properties Delivered" },
-                  { value: "78+", label: "Investors Served" },
+                  { value: "103+", label: "Verified Properties Delivered" },
+                  { value: "58+", label: "Clients Served" },
                   { value: "4+", label: "Years of Structured Operation" },
                   { value: "100%", label: "Documented Allocations" }
                 ].map((stat, i) => (
@@ -218,72 +284,7 @@ const About = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* ── THE PROBLEM & SOLUTION SECTION ── */}
-      <section className="py-32 px-8 md:px-20 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-20">
-            {/* The systemic problem */}
-            <motion.div {...fadeInUp}>
-              <p className="section-label mb-4">The Market Problem</p>
-              <h3 className="serif text-4xl md:text-5xl font-light mb-6 leading-tight green-line text-gray-900">
-                Too Many Investors<br /><em className="text-[#15803d]">Lose Money.</em>
-              </h3>
-              <p className="text-gray-500 mb-10 leading-relaxed text-sm font-light">
-                Too many investors lose money not because real estate is bad — but because verification is weak. The problem is systemic, not personal. And it is solvable.
-              </p>
-              <div className="space-y-3">
-                {[
-                  { text: "Fraudulent and disputed land documents", icon: <AlertTriangle size={13} /> },
-                  { text: "Title defects discovered after payment", icon: <FileText size={13} /> },
-                  { text: "Government acquisition risks undisclosed", icon: <Landmark size={13} /> },
-                  { text: "Developers disappearing after funds received", icon: <Building2 size={13} /> },
-                  { text: "Diaspora investors buying blind, without control", icon: <Globe size={13} /> },
-                  { text: "Emotional purchases with no due diligence", icon: <Eye size={13} /> }
-                ].map((fear, i) => (
-                  <motion.div
-                    key={i}
-                    {...stagger(i)}
-                    className="flex items-center gap-4 py-4 border-b border-gray-100 group"
-                  >
-                    <span className="text-red-400 shrink-0">{fear.icon}</span>
-                    <span className="text-gray-600 text-sm font-light group-hover:text-gray-900 transition-colors">{fear.text}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* The APPLIZ solution positioning */}
-            <motion.div {...fadeInUp} className="flex flex-col justify-center">
-              <p className="section-label mb-4">The APPLIZ Solution</p>
-              <h3 className="serif text-4xl md:text-5xl font-light mb-6 leading-tight green-line text-gray-900">
-                We Exist to Solve<br /><em className="text-[#15803d]">A Trust Deficit.</em>
-              </h3>
-              <p className="text-gray-500 mb-10 leading-relaxed text-sm font-light">
-                APPLIZ was built out of a conviction that African real estate needed structure, not speculation. We position ourselves as the solution to systemic risk — an institution that eliminates the problems most investors accept as inevitable.
-              </p>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { title: "Title Verification Framework", icon: <ShieldCheck size={16} /> },
-                  { title: "Legal Due Diligence", icon: <FileText size={16} /> },
-                  { title: "Government Registry Checks", icon: <Landmark size={16} /> },
-                  { title: "Documentation Audits", icon: <Award size={16} /> }
-                ].map((pillar, i) => (
-                  <motion.div
-                    key={i}
-                    {...stagger(i)}
-                    className="green-border-card relative bg-[#f8fdf9] p-5 rounded-sm"
-                  >
-                    <div className="stat-card absolute inset-0 rounded-sm" />
-                    <span className="text-[#15803d] mb-3 block">{pillar.icon}</span>
-                    <p className="text-xs font-medium text-gray-700 leading-snug uppercase tracking-wide">{pillar.title}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+   
 
       {/* ── SECTION 2: THE APPLIZ SYSTEM ── */}
       <section className="py-32 px-8 md:px-20 bg-[#f9fafb]">
@@ -367,87 +368,7 @@ const About = () => {
       </section>
 
       {/* ── SECTION 3: TRANSFORMATION STORY ── */}
-      <section className="py-32 px-8 md:px-20 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <motion.div {...fadeInUp} className="text-center mb-20">
-            <p className="section-label mb-4">Client Outcomes</p>
-            <h2 className="serif text-5xl md:text-6xl font-light green-line text-gray-900" style={{ display: 'inline-block' }}>
-              The <em className="text-[#15803d]">APPLIZ Difference.</em>
-            </h2>
-          </motion.div>
-
-          <div className="grid lg:grid-cols-2 gap-10 mb-20">
-            {/* Before */}
-            <motion.div {...fadeInUp} className="transformation-before rounded-sm p-10" style={{
-              background: 'linear-gradient(135deg, rgba(239,68,68,0.04) 0%, rgba(239,68,68,0.01) 100%)',
-              border: '1px solid rgba(239,68,68,0.15)'
-            }}>
-              <p className="text-[10px] uppercase tracking-[0.35em] text-red-400 font-semibold mb-6">Before APPLIZ</p>
-              <div className="space-y-5">
-                {[
-                  "Fear — not knowing if the land is legitimate",
-                  "Distance anxiety — no trusted eyes on the ground",
-                  "Documentation doubt — unclear what you actually own",
-                  "Sleepless nights wondering about your capital",
-                  "Pressure to trust strangers with your savings"
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <div className="w-1.5 h-1.5 rounded-full bg-red-300 shrink-0 mt-2" />
-                    <span className="text-gray-500 text-sm font-light">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* After */}
-            <motion.div {...fadeInUp} className="transformation-after rounded-sm p-10" style={{
-              background: 'linear-gradient(135deg, rgba(21,128,61,0.06) 0%, rgba(21,128,61,0.01) 100%)',
-              border: '1px solid rgba(21,128,61,0.2)'
-            }}>
-              <p className="text-[10px] uppercase tracking-[0.35em] text-[#15803d] font-semibold mb-6">After APPLIZ</p>
-              <div className="space-y-5">
-                {[
-                  "Confidence — every document verified and in your hands",
-                  "Remote control — we are your trusted eyes on the ground",
-                  "Verified ownership — title clear and legally protected",
-                  "Asset security — capital preserved with institutional process",
-                  "Peace of mind — the real product we deliver"
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <CheckCircle2 size={14} className="text-[#15803d] shrink-0 mt-0.5" />
-                    <span className="text-gray-700 text-sm font-light">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Track record */}
-          <motion.div {...fadeInUp} className="space-y-4">
-            <p className="section-label mb-6 text-center">Proven Track Record</p>
-            <div className="grid md:grid-cols-3 gap-4">
-              {[
-                { icon: <CheckCircle2 size={20} />, label: "Repeat Buyers", value: "68% of our clients invest again" },
-                { icon: <Globe size={20} />, label: "Global Client Base", value: "Africa, Europe & North America" },
-                { icon: <Award size={20} />, label: "Consistent Delivery", value: "4+ Years. 102 Plots. 100% Verified." }
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  {...stagger(i)}
-                  className="green-border-card relative bg-white flex items-center gap-6 p-6 rounded-sm overflow-hidden"
-                >
-                  <div className="stat-card absolute inset-0" />
-                  <span className="text-[#15803d] shrink-0 relative z-10">{item.icon}</span>
-                  <div className="relative z-10">
-                    <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-0.5">{item.label}</p>
-                    <p className="text-gray-900 font-semibold text-sm leading-snug">{item.value}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
+     
 
       {/* ── SECTION 4: FOUNDER & VISION ── */}
       <section className="py-32 px-8 md:px-20 bg-[#f9fafb]">
