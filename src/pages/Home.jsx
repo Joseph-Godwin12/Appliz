@@ -261,7 +261,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.85, delay: 0.1 }}
               className="serif text-4xl sm:text-5xl md:text-[5rem] lg:text-[6rem] font-light leading-[1.06] mb-7 max-w-3xl text-white"
             >
-              Secure Strategic<br />Assets <em className="text-[#4ade80]">in Southeast<br />Nigeria.</em>
+              Secure Strategic<br />Assets <em className="text-[#4ade80]">in Nigeria.</em>
             </motion.h1>
 
             <motion.p
@@ -812,7 +812,7 @@ const Home = () => {
           </motion.div>
           <div className="space-y-4">
             {[
-              { q: "How long does the verification process take?",  a: "Typically 2–3 weeks for complete verification including title checks, government registry reviews, and site inspections." },
+              { q: "How long does the Documentation & Allocation take?",  a: 5-Working Days. We've done all Due Diligence for you. So we believe in Swift Delivery and Peace of Mind" },
               { q: "Can I invest as a diaspora investor?",          a: "Yes! We specialize in supporting Nigerian diaspora investors. All documentation can be handled remotely and we provide regular updates throughout the process." },
               { q: "What's the minimum investment required?",        a: "There's no fixed minimum. We work with investors of all sizes. Contact us to discuss options that fit your budget and goals." },
               { q: "Are there any hidden costs?",                   a: "No. We believe in complete transparency. All costs are disclosed upfront before you make any commitment." },
