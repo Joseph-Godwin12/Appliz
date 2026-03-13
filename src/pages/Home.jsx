@@ -570,7 +570,7 @@ const Home = () => {
                 <p className="section-label mb-3">Our Track Record</p>
                 <div className="space-y-3">
                   {[
-                    "68% of our clients invest again",
+                    "89% of our clients invest again",
                     "4+ Years. 100+ Plots. 100% Verified.",
                     "Zero disputed transactions"
                   ].map((item, i) => (
