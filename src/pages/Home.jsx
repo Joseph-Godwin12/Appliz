@@ -812,7 +812,7 @@ const Home = () => {
           </motion.div>
           <div className="space-y-4">
             {[
-              { q: "How long does the Documentation & Allocation take?",  a: 5-Working Days. We've done all Due Diligence for you. So we believe in Swift Delivery and Peace of Mind" },
+              { q: "How long does the Documentation & Allocation take?",  a: "5-Working Days. We've done all Due Diligence for you. So we believe in Swift Delivery and Peace of Mind" },
               { q: "Can I invest as a diaspora investor?",          a: "Yes! We specialize in supporting Nigerian diaspora investors. All documentation can be handled remotely and we provide regular updates throughout the process." },
               { q: "What's the minimum investment required?",        a: "There's no fixed minimum. We work with investors of all sizes. Contact us to discuss options that fit your budget and goals." },
               { q: "Are there any hidden costs?",                   a: "No. We believe in complete transparency. All costs are disclosed upfront before you make any commitment." },
