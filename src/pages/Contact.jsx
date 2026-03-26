@@ -11,6 +11,7 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
 
   const fadeInUp = {
     initial: { opacity: 0, y: 40 },
@@ -27,11 +28,39 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // For now, create a mailto link
-    const mailtoLink = `mailto:applizresources@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`)}`;
-    window.location.href = mailtoLink;
+    setStatus('loading');
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/applizresources@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+          _template: 'table',
+          _captcha: 'false'
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success === 'true' || result.success === true) {
+        setStatus('success');
+        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      setStatus('error');
+    }
   };
 
   return (
@@ -345,14 +374,32 @@ const Contact = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.5 }}
                 type="submit"
-                className="w-full bg-[#15803d] hover:bg-[#16a34a] text-white py-4 rounded-sm font-semibold text-sm tracking-wider uppercase transition-colors"
+                disabled={status === 'loading' || status === 'success'}
+                className={`w-full py-4 rounded-sm font-semibold text-sm tracking-wider uppercase transition-colors text-white
+                  ${status === 'success'
+                    ? 'bg-green-400 cursor-not-allowed'
+                    : status === 'error'
+                    ? 'bg-red-500 hover:bg-red-600'
+                    : 'bg-[#15803d] hover:bg-[#16a34a]'
+                  }`}
               >
-                Send Message
+                {status === 'loading' ? 'Sending...' :
+                 status === 'success' ? '✓ Message Sent!' :
+                 status === 'error'   ? 'Failed — Try Again' :
+                 'Send Message'}
               </motion.button>
 
-              <p className="text-xs text-gray-500 text-center font-light">
-                We take your privacy seriously and will respond within 24 hours.
-              </p>
+              {status === 'error' && (
+                <p className="text-xs text-red-500 text-center">
+                  Something went wrong. Please email us directly at applizresources@gmail.com
+                </p>
+              )}
+
+              {status !== 'error' && (
+                <p className="text-xs text-gray-500 text-center font-light">
+                  We take your privacy seriously and will respond within 24 hours.
+                </p>
+              )}
             </form>
           </motion.div>
         </div>

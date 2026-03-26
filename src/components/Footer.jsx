@@ -34,7 +34,9 @@ export default function Footer() {
           <div className="grid lg:grid-cols-12 gap-16 pb-16 border-b border-white/5">
             {/* Left */}
             <div className="lg:col-span-5">
-              <img src={logo} alt="Appliz Logo" className="h-12 w-auto mb-6 opacity-90" />
+               <div className="flex items-center gap-2 "  style={{ height: '52px', overflow: 'hidden' }}>
+                  <img src={logo} alt="Appliz Logo" className="h-44 w-auto bg-gray-400" style={{ marginTop: '6px' }}/>
+                </div>
               <p className="text-gray-500 text-xs mb-2 font-light tracking-widest uppercase">Registered Business</p>
               <p className="text-[#4ade80] font-mono text-sm mb-8">RC812094</p>
 

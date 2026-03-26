@@ -699,7 +699,7 @@ const Home = () => {
       {/* ═══════════════════════════════════════════
           CONTACT
       ═══════════════════════════════════════════ */}
-      <section className="py-32 px-8 md:px-20 bg-[#f9fafb]">
+      {/* <section className="py-32 px-8 md:px-20 bg-[#f9fafb]">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-16">
 
           <motion.div {...fadeInUp} className="lg:col-span-1 space-y-8">
@@ -799,7 +799,7 @@ const Home = () => {
             </form>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── FAQ ── */}
       <section className="py-32 px-8 md:px-20 bg-white">
